@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projeto_1.Tabuleiro
+namespace Projeto_1.Board
 {
-    internal class Posicao
+    class Posicao
     {
         public int Linha { get; set; }
         public int Coluna { get; set; }
@@ -19,7 +19,7 @@ namespace Projeto_1.Tabuleiro
 
         public override string ToString()
         {
-            return  $"{Linha}, {Coluna}";
+            return  $"Posição: {Linha}, {Coluna}";
         }
     }
 }

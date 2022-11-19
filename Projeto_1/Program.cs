@@ -1,5 +1,6 @@
-﻿using Projeto_1.Tabuleiro;
+﻿using Projeto_1.Board;
+using Projeto_1;
 
-Posicao p = new Posicao(3, 4);
+Tabuleiro tab = new Tabuleiro(8, 8);
 
-Console.WriteLine(p);
+Tela.ImprimirTabuleiro(tab);
