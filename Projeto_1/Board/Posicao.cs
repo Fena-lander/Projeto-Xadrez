@@ -17,6 +17,12 @@ namespace Projeto_1.Board
             Coluna = coluna;
         }
 
+        public void DefinirValores(int linha, int coluna)
+        {
+            Linha = linha;
+            Coluna = coluna;
+        }
+
         public override string ToString()
         {
             return  $"Posição: {Linha}, {Coluna}";
