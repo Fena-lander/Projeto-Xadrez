@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projeto_1.Board;
+using Projeto_1.Chess;
 
 namespace Projeto_1
 {
@@ -31,6 +32,14 @@ namespace Projeto_1
             Console.WriteLine("  a b c d e f g h ");
         }
 
+        public static PosicaoXadrez LerPosicaoXadrez()
+        {
+            string x = Console.ReadLine();
+            char coluna = x[0];
+            int linha = int.Parse(x[1] + " ");
+            return new PosicaoXadrez(coluna, linha);
+        }
+
         public static void ImprimirPeca(Peca peca)
         {
             if(peca.Cor == Cor.Branca)
@@ -40,7 +49,7 @@ namespace Projeto_1
             else
             {
                 ConsoleColor aux = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.DarkGray;
                 Console.Write(peca);
                 Console.ForegroundColor = aux;
             }

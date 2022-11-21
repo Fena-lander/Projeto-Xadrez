@@ -20,5 +20,10 @@ namespace Projeto_1.Board
             this.Tab = tab;
             Movimentos = 0;
         }
+
+        public void IncrementarMovimento()
+        {
+            Movimentos++;
+        }
     }
 }
