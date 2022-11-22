@@ -10,8 +10,8 @@ namespace Projeto_1.Chess
     internal class PartidaDeXadrez
     {
         public Tabuleiro tab { get; private set; }
-        private int Turno;
-        private Cor JogadorAtual;
+        public int Turno { get; private set; }
+        public Cor JogadorAtual { get; private set; }
         public bool Terminada { get; private set; }
 
         public PartidaDeXadrez()
@@ -29,6 +29,49 @@ namespace Projeto_1.Chess
             Peca PecaCapturada = tab.RetirarPeca(destino);
             Terminada = false;
             tab.ColocarPeca(p, destino);
+        }
+
+        public void RealizaJogada(Posicao origem, Posicao destino)
+        {
+            ExecutaMovimento(origem, destino);
+            Turno++;
+            MudaJogador();
+        }
+
+        public void ValidarPosicaoDeOrigem(Posicao pos)
+        {
+            if(tab.peca(pos) == null)
+            {
+                throw new TabuleiroException("Não existe peça na posição digitada!");
+            }
+            if (JogadorAtual != tab.peca(pos).Cor)
+            {
+                throw new TabuleiroException($"Selecione uma peca de cor {JogadorAtual}");
+            }
+            if (!tab.peca(pos).ExisteMovimentosPossiveis())
+            {
+                throw new TabuleiroException("Não há movimentos para peça escolhida");
+            }
+        }
+
+        public void ValidarPosicaoDeDestino(Posicao origem, Posicao destino)
+        {
+            if (!tab.peca(origem).PodeMoverPara(destino))
+            {
+                throw new TabuleiroException("Este movimento não é permitido");
+            }
+        }
+
+        public void MudaJogador()
+        {
+            if(JogadorAtual == Cor.Branca)
+            {
+                JogadorAtual = Cor.Preta;
+            }
+            else
+            {
+                JogadorAtual = Cor.Branca;
+            }
         }
 
         private void ColocarPecas()
