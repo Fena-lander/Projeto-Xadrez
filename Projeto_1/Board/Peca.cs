@@ -25,6 +25,11 @@ namespace Projeto_1.Board
         {
             Movimentos++;
         }
+        public void DecrementarMovimento()
+        {
+            Movimentos--;
+        }
+
         public bool ExisteMovimentosPossiveis()
         {
             bool[,] mat = MovimentosPossiveis();

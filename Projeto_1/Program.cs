@@ -35,6 +35,8 @@ try
             Console.WriteLine(e.Message);
             Console.ReadLine();
         }
+        Console.Clear();
+        Tela.ImprimirPartida(partida);
     }
 }
 catch(TabuleiroException e)
